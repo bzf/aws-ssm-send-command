@@ -21,6 +21,7 @@ function init() {
   export INSTANCE_IDS=$INPUT_INSTANCE_IDS
   export DOCUMENT_NAME=$INPUT_DOCUMENT_NAME
   export COMMENT=$INPUT_COMMENT
+  export COMMAND=$COMMAND
 }
 
 function send_command() {
@@ -29,7 +30,8 @@ function send_command() {
   eval "aws ssm send-command \
     --instance-ids ${INSTANCE_IDS} \
     --document-name ${DOCUMENT_NAME} \
-    --comment '${COMMENT}'"
+    --comment '${COMMENT}' \
+    --parameters '{\"command\": [\"${COMMAND}\"] }'"
 
   echo "== FINISHED SEND_COMMAND"
 }

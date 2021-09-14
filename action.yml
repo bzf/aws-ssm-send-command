@@ -19,6 +19,10 @@ inputs:
     required: false
     description: 'Comment for Send-Command'
     default: 'Github Actions'
+  command:
+    required: false
+    description: 'Command for Send-Command'
+    default: 'Executed by Github Actions'
 
 runs:
   using: 'docker'
